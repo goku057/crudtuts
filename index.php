@@ -53,6 +53,7 @@ require_once("db_connect.php");
             <th>Account balance</th>
             <th>accountType id</th>
             <th>accountType name</th>
+            <th>Action</th>
         </tr>
         <?php
         while($row = mysqli_fetch_assoc($result)){
@@ -64,6 +65,10 @@ require_once("db_connect.php");
             <td><?php echo $row['balance'] ?></td>
             <td><?php echo $row['acc_type'] ?></td>
             <td><?php echo $row['account_type_name'] ?></td>
+            <td>
+                <a href="./update.php?id=<?php echo $row['account_id'] ?>"><button>Edit</button></a>
+                <a onclick="return confirm('are you sure you want to delete')" href="./delete.php?id=<?php echo $row['account_id'] ?>"><button>Delete</button></a>
+            </td>
         </tr>
         
         <?php 
